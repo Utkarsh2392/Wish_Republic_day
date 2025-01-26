@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mystery Box</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <div class="container">
+        
+        
+        <!-- Mystery Box -->
+        <div id="mysteryBox" class="mystery-box" onclick="openBox()">
+            <h1 class="title">Click the Mystery Box</h1>
+            <div class="box-face front"></div>
+            <div class="box-face back"></div>
+            <div class="box-face left"></div>
+            <div class="box-face right"></div>
+            <div class="box-face top"></div>
+            <div class="box-face bottom"></div>
+        </div>
+
+        <!-- Hidden Message -->
+        <div id="message" class="message">
+            <p>Sorry, just one more click for the gift box!</p>
+        </div>
+
+        <button id="finalClick" class="final-click-btn" onclick="showGift()">Click for Gift Box</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

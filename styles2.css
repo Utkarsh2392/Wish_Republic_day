@@ -1,0 +1,116 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1.title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.mystery-box {
+    width: 200px;
+    height: 200px;
+    perspective: 1000px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    transform: rotateX(0deg) rotateY(0deg);
+    transition: transform 1s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Position relative for better centering */
+}
+
+.box-face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: #f39c12;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: white;
+    border: 5px solid #e67e22;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.front  { transform: rotateY(  0deg) translateZ(100px); }
+.back   { transform: rotateY(180deg) translateZ(100px); }
+.left   { transform: rotateY(-90deg) translateZ(100px); }
+.right  { transform: rotateY( 90deg) translateZ(100px); }
+.top    { transform: rotateX( 90deg) translateZ(100px); }
+.bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+/* Message to be displayed after the first click */
+.message {
+    display: none;
+    font-size: 2rem;  /* Increased font size */
+    font-weight: 700; /* Bold text */
+    color: #333;
+    margin-top: 20px;
+    opacity: 0; /* Initially hidden */
+    animation: messageAnimation 2s forwards; /* Add animation for entry */
+}
+
+.final-click-btn {
+    display: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.final-click-btn:hover {
+    background-color: #2ecc71;
+}
+
+/* Final Animation for the Mystery Box */
+@keyframes openBox {
+    0% { transform: rotateX(0deg) rotateY(0deg); }
+    100% { transform: rotateX(0deg) rotateY(180deg); }
+}
+
+/* Animation for the final message */
+@keyframes messageAnimation {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
